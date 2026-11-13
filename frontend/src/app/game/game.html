@@ -1,0 +1,57 @@
+<main>
+  <header>
+    <a routerLink="/">Stop / Back to Library</a>
+    @if (game) {
+      <strong>{{ game.bookTitle }}</strong>
+      <span>Health: {{ game.health }}</span>
+      @if (!game.ended) {
+        <button type="button" (click)="saveProgress()" [disabled]="loading">Save progress</button>
+        <button type="button" (click)="togglePause()" [disabled]="loading">
+          {{ paused ? 'Resume' : 'Pause' }}
+        </button>
+      }
+    }
+  </header>
+  @if (saveMessage) { <p role="status">{{ saveMessage }}</p> }
+  @if (loading) { <p role="status">Loading adventure…</p> }
+  @if (error) {
+    <p role="alert">{{ error }}</p>
+  }
+  @if (game) {
+    @if (paused) {
+      <section class="reading" aria-label="Paused adventure">
+        <h1>Adventure paused</h1>
+        <p>Your place is kept while this page stays open. Select Resume to continue.</p>
+      </section>
+    } @else {
+      <section class="reading" aria-label="Current section">
+        <h1>Section {{ game.currentSection.id }}</h1>
+        <p class="story">{{ game.currentSection.text }}</p>
+        @if (game.consequenceText) {
+          <p class="consequence" role="status">{{ game.consequenceText }}</p>
+        }
+        @if (game.ended) {
+          <div role="status">
+            @if (game.health <= 0) {
+              <h2>Game over</h2>
+              <p>You have no health left. Your adventure ends here.</p>
+            } @else {
+              <h2>Adventure complete</h2>
+              <p>You reached an ending alive.</p>
+            }
+          </div>
+          <button type="button" (click)="startGame()" [disabled]="loading">Play again</button>
+        } @else {
+          <h2>What do you choose?</h2>
+          <div class="choices">
+            @for (option of game.currentSection.options; track $index) {
+              <button type="button" (click)="chooseOption($index)" [disabled]="loading">
+                {{ option.description }}
+              </button>
+            }
+          </div>
+        }
+      </section>
+    }
+  }
+</main>

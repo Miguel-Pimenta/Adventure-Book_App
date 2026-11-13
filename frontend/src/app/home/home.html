@@ -1,0 +1,62 @@
+<header class="hero">
+  <h1>Adventure Awaits</h1>
+  <p>Embark on epic quests where every choice shapes your destiny. Explore mystical realms, solve ancient mysteries, and become the hero of your own story.</p>
+  @if (!loading && !error) {
+     <p class="library-count">{{ books.length }} adventures in the library</p>
+  }
+</header>
+
+<main>
+  <h2>The Adventure Library</h2>
+  <p class="intro">Choose your next adventure from our collection of interactive tales. Each book offers unique paths and multiple endings based on your choices.</p>
+  <div class="filters">
+    <label>Search adventures
+      <input type="search" [(ngModel)]="search" placeholder="Title or author">
+    </label>
+    <label>Difficulty
+      <select [(ngModel)]="difficulty">
+        <option value="">All difficulties</option>
+        <option value="EASY">Easy</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HARD">Hard</option>
+      </select>
+    </label>
+  </div>
+
+  @if (loading) {
+    <p role="status">Loading adventures…</p>
+  }
+  @if (error) {
+    <p role="alert">{{ error }}</p>
+  }
+
+  <div class="books">
+    @for (book of filteredBooks; track book.id) {
+      <article>
+        <h3>{{ book.title }}</h3>
+        <p class="author">by {{ book.author }}</p>
+        <span class="difficulty" [attr.data-difficulty]="book.difficulty">{{ book.difficulty }}</span>
+        <p class="section-count">{{ book.sections.length }} sections</p>
+        @if (!book.valid) {
+          <div class="invalid">
+            <strong>Book unavailable</strong>
+            <ul>
+              @for (error of book.validationErrors; track $index) { <li>{{ error }}</li> }
+            </ul>
+          </div>
+        }
+        <button type="button" [disabled]="!book.valid" (click)="selectBook(book)">
+          {{ book.valid ? 'Begin Quest' : 'Invalid book' }}
+        </button>
+        @if (book.valid && hasSave(book)) {
+          <button class="resume" type="button" (click)="resumeBook(book)">Resume saved game</button>
+        }
+      </article>
+    }
+  </div>
+
+  @if (!loading && !error && filteredBooks.length === 0) {
+    <p>No adventures match your search.</p>
+  }
+
+</main>

@@ -1,0 +1,361 @@
+{
+  "title": "The Last Light of Blackwater",
+  "author": "Original adventure",
+  "difficulty": "MEDIUM",
+  "sections": [
+    {
+      "id": "1",
+      "type": "BEGIN",
+      "text": "For ninety years, the lighthouse above Blackwater has guided ships safely through the northern reefs. Tonight, its beam turns red.\n\nAcross the harbour, every clock stops at eleven minutes past midnight. Fishing boats drift backwards against the tide, and voices begin speaking from the drains.\n\nMara Voss, a young lighthouse mechanic, finds a sealed envelope beneath her workshop door. Inside is a diagram of the lighthouse engine and a message written by her former teacher, Professor Wren:\n\n'If the light changes colour, do not let anyone extinguish it. Find me beneath the tower.'\n\nOutside, the streets are already flooding. Mara takes her tools and heads for the lighthouse.",
+      "options": [
+        {
+          "description": "Cross the rooftops above the flooded streets",
+          "gotoId": "2",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "A loose roof tile gives way. Mara catches a gutter, but strikes her ribs against the wall."
+          }
+        },
+        {
+          "description": "Follow the canal towards the old ferry station",
+          "gotoId": "3"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "type": "NODE",
+      "text": "From the rooftops, Mara sees something enormous moving beneath the harbour. It passes under entire streets without disturbing the buildings above.\n\nA maintenance bridge connects the last roof to the abandoned observatory. Beyond it, a narrow crane arm offers a shortcut towards the lighthouse tunnels.\n\nBelow, a voice calls Mara's name. It sounds exactly like Professor Wren, but it comes from inside a submerged chimney.",
+      "options": [
+        {
+          "description": "Ignore the voice and cross the maintenance bridge",
+          "gotoId": "4"
+        },
+        {
+          "description": "Jump onto the crane arm and take the shortcut",
+          "gotoId": "5",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 3,
+            "text": "The crane swings under Mara's weight. She reaches the far platform with a badly twisted ankle."
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "NODE",
+      "text": "At the ferry station, an elderly boatman struggles to keep his vessel tied to the dock. The water is rising, although the tide should be falling.\n\n'The sea is remembering an old road,' he says. 'Your lighthouse was built to make it forget.'\n\nHe offers to take Mara to the observatory. Beneath the dock, she also notices an open drainage tunnel leading towards the tower.",
+      "options": [
+        {
+          "description": "Help secure the boat, then travel to the observatory",
+          "gotoId": "4"
+        },
+        {
+          "description": "Enter the drainage tunnel",
+          "gotoId": "5",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 3,
+            "text": "Freezing water sweeps Mara against the iron steps before she pulls herself into the tunnel."
+          }
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "type": "NODE",
+      "text": "The observatory is occupied by its last caretaker, Mrs Bell. She has spread old charts across the floor.\n\nThe drawings show a second coastline beneath Blackwater: streets, bridges and towers buried below the seabed.\n\n'The harbour was once a doorway,' she explains. 'The lighthouse engine keeps it closed. Wren went down to repair it yesterday.'\n\nShe points to a service stairway behind the telescope and places a steaming cup beside Mara.",
+      "options": [
+        {
+          "description": "Drink the tea and let Mrs Bell dress Mara's injuries",
+          "gotoId": "6",
+          "consequence": {
+            "type": "GAIN_HEALTH",
+            "value": 2,
+            "text": "Warm tea and clean bandages restore some of Mara's strength."
+          }
+        },
+        {
+          "description": "Study the charts, then descend immediately",
+          "gotoId": "6"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "type": "NODE",
+      "text": "The shortcut ends inside a pumping station. Water pours through a broken pipe, and the floor shakes with the movement of machinery below.\n\nA maintenance worker is trapped behind a fallen gate. He points towards two exits: a narrow inspection passage and a flooded access shaft.\n\n'Wren took the inspection passage,' he shouts. 'Whatever you hear down there, don't answer it.'",
+      "options": [
+        {
+          "description": "Open the gate for the worker and use the inspection passage",
+          "gotoId": "6",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 1,
+            "text": "Mara forces the gate open, cutting her palm on the broken handle."
+          }
+        },
+        {
+          "description": "Descend through the flooded access shaft",
+          "gotoId": "8",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "The ladder ends above the floor. Mara drops awkwardly into the water."
+          }
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "type": "NODE",
+      "text": "Deep beneath the lighthouse, Mara reaches a circular chamber divided by an underground channel.\n\nOn the opposite bank stands a bronze door. Above it, three words have been carved into the stone:\n\n'LIGHT BINDS MEMORY.'\n\nA damaged footbridge crosses the channel. To the left, an older passage follows the water beneath a low stone arch.",
+      "options": [
+        {
+          "description": "Cross the damaged footbridge",
+          "gotoId": "7",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "A railing collapses. Mara lands safely, but a jagged edge tears through her sleeve."
+          }
+        },
+        {
+          "description": "Follow the passage beneath the stone arch",
+          "gotoId": "8"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "type": "NODE",
+      "text": "Beyond the bronze door, Professor Wren sits beside a silent engine. One sleeve is soaked with blood, but he smiles when he sees Mara.\n\n'The machine isn't broken,' he says. 'Someone has reversed it.'\n\nThrough a window behind him, Mara sees a vast stone arch on the seabed. Its doors are opening towards a city filled with pale lights.\n\nWren points to a disconnected cable. 'Help me reach the control room. There may still be time.'",
+      "options": [
+        {
+          "description": "Support Wren and take the stairs to the control room",
+          "gotoId": "9"
+        },
+        {
+          "description": "Reconnect the cable before helping Wren upstairs",
+          "gotoId": "9",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "The damaged connection releases a sudden electrical discharge through Mara's tools."
+          }
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "type": "NODE",
+      "text": "The passage opens into a hall lined with diving suits. Their helmets turn as Mara walks past, although nobody appears to be inside them.\n\nAt the far end, Professor Wren is trapped behind a security grille. Beside him stands a figure wearing an old harbour captain's uniform.\n\n'The professor is confused,' the captain says. 'Open the lower floodgate and I will release him.'\n\nWren silently shakes his head.",
+      "options": [
+        {
+          "description": "Release the security grille using the manual lever",
+          "gotoId": "9",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 1,
+            "text": "Mara pulls the lever through its rusted housing and strains her injured arm."
+          }
+        },
+        {
+          "description": "Trust the captain and open the lower floodgate",
+          "gotoId": "11",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 4,
+            "text": "A wall of water knocks Mara down. The captain dissolves into foam as Wren drags her clear."
+          }
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "type": "NODE",
+      "text": "Wren locks the control-room door behind them.\n\n'That captain drowned before this lighthouse existed,' he explains. 'The city below sends memories ahead of it. Familiar faces. Helpful voices. Anything that persuades us to open the way.'\n\nThe controls show that the lighthouse beam is being drawn down into the sea instead of projected across it.\n\nA first-aid cabinet hangs beside the stairs. Across the room, the emergency brake begins to slip.",
+      "options": [
+        {
+          "description": "Use the medical supplies before approaching the controls",
+          "gotoId": "10",
+          "consequence": {
+            "type": "GAIN_HEALTH",
+            "value": 3,
+            "text": "Mara cleans her wounds and replaces the damaged bandages."
+          }
+        },
+        {
+          "description": "Grab the emergency brake before it releases",
+          "gotoId": "11",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "The brake handle snaps backwards, striking Mara across the shoulder."
+          }
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "type": "NODE",
+      "text": "The first-aid cabinet contains an old photograph. It shows Wren standing beside Mara's predecessor, a mechanic named Ada Finch.\n\nSomeone has written on the back:\n\n'Never destroy the lens. Turn it towards the dawn.'\n\nWren studies the photograph for a long moment.\n\n'Ada discovered how to close the doorway without trapping anyone below,' he says. 'I thought her calculations were wrong.'\n\nHe returns to the controls and marks two damaged systems on the diagram.",
+      "options": [
+        {
+          "description": "Help Wren prepare a controlled shutdown",
+          "gotoId": "12"
+        },
+        {
+          "description": "Search the maintenance desk for Ada's remaining notes",
+          "gotoId": "12",
+          "consequence": {
+            "type": "GAIN_HEALTH",
+            "value": 1,
+            "text": "While searching, Mara finds fresh water and a packet of emergency rations."
+          }
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "type": "NODE",
+      "text": "The emergency system fails. Every diving suit in the lower hall begins climbing the stairs.\n\nWren holds the door shut while Mara examines the controls. The main engine can still be stopped, but only by closing a pressure valve below the floor.\n\nAlternatively, she can cut power to the outer corridors. That will slow the approaching figures, although it will leave part of the tower flooded and dark.",
+      "options": [
+        {
+          "description": "Climb below the floor and close the pressure valve",
+          "gotoId": "12",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 3,
+            "text": "Mara turns the valve while hot water spills across her hands."
+          }
+        },
+        {
+          "description": "Cut power to the outer corridors",
+          "gotoId": "12",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 1,
+            "text": "A broken panel falls as Mara pulls the isolation switch."
+          }
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "type": "NODE",
+      "text": "The engine slows. Through the observation window, Mara sees the underwater city rising towards the surface.\n\nWren studies the control diagram.\n\n'There are two ways left to change the beam. We can rotate the lighthouse lens from the gallery, or redirect the engine through the lower chamber.'\n\nAbove them, the red light sweeps across the clouds. Somewhere in the tower, a door begins to bend under repeated blows.",
+      "options": [
+        {
+          "description": "Climb to the gallery and rotate the lighthouse lens",
+          "gotoId": "13",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "Mara pushes through falling glass on the stairway to the gallery."
+          }
+        },
+        {
+          "description": "Descend to the lower chamber and redirect the engine",
+          "gotoId": "14"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "type": "NODE",
+      "text": "The lens fills the gallery like a giant glass eye. Inside its red reflection, Mara sees Blackwater as it might have been: golden streets, crowded ships and people she has never met waving her closer.\n\nThe rotation wheel is jammed. Wren braces the mechanism while Mara searches for another way to move it.\n\nA narrow maintenance rail runs around the outside of the lens. Beneath the central platform, an exposed gear turns slowly through broken metal.",
+      "options": [
+        {
+          "description": "Use the outside rail to release the lens by hand",
+          "gotoId": "15",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 1,
+            "text": "Mara reaches the release catch, scraping her hands along the cold rail."
+          }
+        },
+        {
+          "description": "Force a tool into the exposed gear",
+          "gotoId": "15",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 4,
+            "text": "The gear breaks free violently and throws Mara against the platform."
+          }
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "type": "NODE",
+      "text": "In the lower chamber, the engine's light flows through transparent pipes. Shapes move inside them like fish made of smoke.\n\nAt the centre stands a wheel marked with two positions: HARBOUR and HORIZON.\n\nThe drowned captain appears on the opposite side of the chamber.\n\n'Turn it towards the harbour,' he says. 'No one in your city will ever have to lose anyone again.'\n\nWren raises the maintenance diagram. Its original markings point towards HORIZON.",
+      "options": [
+        {
+          "description": "Turn the wheel towards HORIZON",
+          "gotoId": "15",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "The wheel resists with crushing pressure before finally turning."
+          }
+        },
+        {
+          "description": "Follow the captain's promise and choose HARBOUR",
+          "gotoId": "15",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 5,
+            "text": "The pipes burst. Mara manages to reverse the wheel, but the escaping light burns through her coat."
+          }
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "type": "NODE",
+      "text": "The beam finally changes direction. Red light fades to silver, and the underwater city stops rising.\n\nBut the doorway remains open.\n\nWren understands the final part of Ada's design: the engine must send one last pulse through the lens as it faces the horizon. The strain may destroy the tower.\n\nThe emergency boat is ready below. Mara can attempt the pulse, disconnect the engine and evacuate the town, or overload the mechanism to seal the doorway by force.",
+      "options": [
+        {
+          "description": "Trust Ada's design and release the final pulse",
+          "gotoId": "16",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 2,
+            "text": "Mara holds the controls steady as the last pulse tears through the engine."
+          }
+        },
+        {
+          "description": "Disconnect the engine and evacuate Blackwater",
+          "gotoId": "17"
+        },
+        {
+          "description": "Overload the mechanism and seal the doorway by force",
+          "gotoId": "18",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 6,
+            "text": "The engine explodes as Mara and Wren race towards the emergency boat."
+          }
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "type": "END",
+      "text": "The lighthouse sends a white beam across the horizon.\n\nFor a heartbeat, the whole harbour becomes transparent. Mara sees the drowned city, its empty squares and the enormous doorway beneath it. Then the doors close.\n\nThe water falls away from the streets. The clocks begin moving again.\n\nAt sunrise, Mara and Wren sit on the lighthouse steps while fishing boats return to the harbour. The tower still stands, although its great engine will never turn again.\n\nWren places Ada's photograph beside the broken controls.\n\n'You were right,' he says quietly.\n\nENDING: THE FIRST MORNING\nMara saved Blackwater and closed the doorway without destroying the lighthouse."
+    },
+    {
+      "id": "17",
+      "type": "END",
+      "text": "Mara disconnects the engine. The silver beam disappears, and the sea becomes still.\n\nShe and Wren reach Blackwater before the next tide. By morning, every resident has left the town.\n\nFrom the hills, they watch the streets disappear beneath dark water. The lighthouse remains visible long after the rooftops are gone.\n\nThat evening, its light turns red again.\n\nWren opens a fresh notebook.\n\n'Next time,' Mara says, 'we finish Ada's work.'\n\nENDING: THE EMPTY HARBOUR\nMara saved the townspeople, but the doorway beneath Blackwater remains open."
+    },
+    {
+      "id": "18",
+      "type": "END",
+      "text": "The explosion splits the lighthouse from its foundations to its lantern room.\n\nMara and Wren reach the emergency boat as the tower collapses behind them. Beneath the surface, falling stone crushes the ancient doorway.\n\nA wave lifts the boat above the harbour wall and leaves it stranded in the market square.\n\nWhen the water drains away, Blackwater is battered but standing. There is no lighthouse now, only a ring of broken stone beyond the reefs.\n\nWeeks later, the first new navigation buoy is placed in the harbour. Mara watches its small, ordinary light begin to flash.\n\nFor once, ordinary is enough.\n\nENDING: A LIGHT OF THEIR OWN\nMara sealed the doorway and saved the town, but the old lighthouse was lost."
+    }
+  ]
+}

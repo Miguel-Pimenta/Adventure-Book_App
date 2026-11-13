@@ -1,0 +1,50 @@
+{
+  "title": "The Forest Gate",
+  "author": "Demo book",
+  "difficulty": "EASY",
+  "sections": [
+    {
+      "id": "1",
+      "type": "BEGIN",
+      "text": "A gate blocks the forest path.",
+      "options": [
+        {
+          "description": "Climb the gate",
+          "gotoId": "2",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 4,
+            "text": "You scrape your hands."
+          }
+        },
+        { "description": "Take the safe path", "gotoId": "3" }
+      ]
+    },
+    {
+      "id": "2",
+      "type": "NODE",
+      "text": "You find a sheltered clearing.",
+      "options": [
+        {
+          "description": "Rest, then leave the forest",
+          "gotoId": "3",
+          "consequence": {
+            "type": "GAIN_HEALTH",
+            "value": 3,
+            "text": "Rest restores your strength."
+          }
+        },
+        {
+          "description": "Cross the thorn bushes",
+          "gotoId": "3",
+          "consequence": {
+            "type": "LOSE_HEALTH",
+            "value": 6,
+            "text": "The thorns cut deeply."
+          }
+        }
+      ]
+    },
+    { "id": "3", "type": "END", "text": "You reach the village safely." }
+  ]
+}
